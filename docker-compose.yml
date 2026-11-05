@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  monero.avado.dnp.dappnode.eth:
+    image: 'monero.avado.dnp.dappnode.eth:0.1.0'
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    volumes:
+      - 'monero:/data'
+    ports:
+      - '18089:18089'
+    environment:
+      - OUT_PEERS=8
+      - IN_PEERS=16
+      - UPLOAD_LIMIT_KB=1024
+      - EXTRA_OPTS=
+    restart: always
+volumes:
+  monero: {}

@@ -1,0 +1,33 @@
+{
+  "name": "monero.avado.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "upstream": "v0.18.5.4",
+  "title": "Monero Node",
+  "description": "Your own Monero node (the official monerod). It downloads and checks every Monero block itself, so your wallet no longer has to ask a stranger's node about your money. It keeps a space-saving (pruned) copy of the blockchain, about 100 GB, and it does not mine. Wallets such as Feather, Cake Wallet and the Monero GUI connect to it with the address its page shows. The first download takes about 1 to 3 days. Its page shows the progress in plain words.",
+  "shortDescription": "Your own Monero node for your wallet",
+  "type": "service",
+  "avadocategory": "monero",
+  "autoupdate": true,
+  "image": {
+    "volumes": [
+      "monero:/data"
+    ],
+    "ports": [
+      "18089:18089"
+    ],
+    "environment": [
+      "OUT_PEERS=8",
+      "IN_PEERS=16",
+      "UPLOAD_LIMIT_KB=1024",
+      "EXTRA_OPTS="
+    ],
+    "restart": "always"
+  },
+  "author": "AVADO",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "links": {
+    "OnboardingWizard": "http://monero.my.ava.do",
+    "HomePage": "https://www.getmonero.org"
+  }
+}
