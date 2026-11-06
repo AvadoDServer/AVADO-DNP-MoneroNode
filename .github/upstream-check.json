@@ -1,0 +1,22 @@
+{
+  "title": "Monero Node",
+  "components": [
+    {
+      "name": "Monero",
+      "github": "monero-project/monero",
+      "notes": "https://github.com/monero-project/monero/releases/tag/v{version}",
+      "caution": "The SHA-256 comes from getmonero.org/downloads/hashes.txt over HTTPS (that file is GPG-signed by binaryFate; this check does not verify the signature). The build checks the download against it.",
+      "checksums": [
+        {
+          "var": "sha",
+          "sums": "https://www.getmonero.org/downloads/hashes.txt",
+          "file": "monero-linux-x64-v{version}.tar.bz2"
+        }
+      ],
+      "pins": [
+        { "file": "build/Dockerfile", "text": "ARG MONERO_VERSION=v{version}\nARG MONERO_SHA256={sha}\n" },
+        { "file": "dappnode_package.json", "text": "\"upstream\": \"v{version}\"" }
+      ]
+    }
+  ]
+}
